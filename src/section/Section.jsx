@@ -3,30 +3,37 @@ import "./Section.css";
 
 const Section = () => {
   const palindrome = [];
-  const [ilkk, setIlkk] = useState(20);
-  const [sonn, setSonn] = useState(40);
-  const [perfect, setPerfect] = useState();
-  const liste =[]
-    
-    // 28 % x == 0
-    // 1
-    // 2
-    // 4
-    // 7
-    // 14
-const deneme = () => {
-     for (let i = 0; i <= sonn - ilkk; i++){
-        setPerfect(i);
-        for (let x = 0; x <= sonn - ilkk; x++){
-            if (perfect < x && perfect % x === 0) {
-              liste.push(x);
+  const [ilkk, setIlkk] = useState();
+  const [sonn, setSonn] = useState();
+  const [pal, setPal] = useState([]);
+  const [perfect, setPerfect] = useState([]);
+ const listem =[]
+
+  
+
+
+  const isPerfect = () => {
+    let number = [];
+          for(let i = ilkk; i < sonn; i++){
+            number.push(i)
+          }
+          console.log(number)
+          number.forEach((e)=>{
+            let temp = 0;
+            for (let i = 1; i <= e / 2; i++) {
+              if (e % i === 0) {
+                temp += i;
+              }
             }
-        }
+
+            if (temp === e && temp !== 0) {
+              listem.push(e);
+              setPerfect(listem);
+            }  
+          })
           
-     }
-    }
-    console.log(liste)
-  const [salla, setSalla] = useState([]);
+  };
+
 
   const calcPal = () => {
     for (let i = 0; i <= sonn - ilkk; i++) {
@@ -37,12 +44,14 @@ const deneme = () => {
 
       if (String(ilkk + i) === ters) {
         palindrome.push(ilkk + i);
-        setSalla(palindrome);
+        setPal(palindrome);
       }
+       ;
     }
+   
   };
 
-  console.log(salla);
+  
   return (
     <div className="container">
       <input
@@ -59,14 +68,14 @@ const deneme = () => {
       />
 
       <button onClick={calcPal}>List palindrome</button>
-      <button onClick={deneme}>List perfect number</button>
+      <button onClick={isPerfect}>List perfect number</button>
 
       <div className="text1">
-        {salla.map((e) => (
-          <div>{e}</div>
+        {pal.map((e) => (
+          <div key={`${e + 1}`}>{e}</div>
         ))}
       </div>
-      <div className="text2"></div>
+      <div className="text2">{perfect.map((e)=>(<div key={e+1}>{e}</div>))}</div>
     </div>
   );
 };
