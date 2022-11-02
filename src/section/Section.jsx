@@ -3,15 +3,15 @@ import "./Section.css";
 
 const Section = () => {
   const palindrome = [];
-  const [ilkk, setIlkk] = useState();
-  const [sonn, setSonn] = useState();
+  const [ilk, setIlk] = useState();
+  const [son, setSon] = useState();
   const [pal, setPal] = useState([]);
   const [perfect, setPerfect] = useState([]);
   const listem = [];
 
   const isPerfect = () => {
     let number = [];
-    for (let i = ilkk; i < sonn; i++) {
+    for (let i = ilk; i < son; i++) {
       number.push(i);
     }
 
@@ -31,14 +31,14 @@ const Section = () => {
   };
 
   const calcPal = () => {
-    for (let i = 0; i <= sonn - ilkk; i++) {
-      const ters = String(ilkk + i)
+    for (let i = 0; i <= son - ilk; i++) {
+      const ters = String(ilk + i)
         .split("")
         .reverse()
         .join("");
 
-      if (String(ilkk + i) === ters) {
-        palindrome.push(ilkk + i);
+      if (String(ilk + i) === ters) {
+        palindrome.push(ilk + i);
         setPal(palindrome);
       }
     }
@@ -49,13 +49,13 @@ const Section = () => {
       <input
         type="number"
         onChange={(e) => {
-          setIlkk(Number(e.target.value));
+          setIlk(Number(e.target.value));
         }}
       />
       <input
         type="number"
         onChange={(e) => {
-          setSonn(Number(e.target.value));
+          setSon(Number(e.target.value));
         }}
       />
 
