@@ -10,12 +10,12 @@ const Section = () => {
   const listem = [];
 
   const isPerfect = () => {
-    let number = [];
+    let numbers = [];
     for (let i = ilk; i < son; i++) {
-      number.push(i);
+      numbers.push(i);
     }
 
-    number.forEach((e) => {
+    numbers.forEach((e) => {
       let toplam = 0;
       for (let i = 1; i <= e/2; i++) {
         if (e % i === 0) {
