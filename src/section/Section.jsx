@@ -17,7 +17,7 @@ const Section = () => {
           for(let i = ilkk; i < sonn; i++){
             number.push(i)
           }
-          console.log(number)
+          
           number.forEach((e)=>{
             let temp = 0;
             for (let i = 1; i <= e / 2; i++) {
