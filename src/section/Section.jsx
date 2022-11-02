@@ -16,14 +16,14 @@ const Section = () => {
     }
 
     number.forEach((e) => {
-      let temp = 0;
-      for (let i = 1; i <= e / 2; i++) {
+      let toplam = 0;
+      for (let i = 1; i <= e/2; i++) {
         if (e % i === 0) {
-          temp += i;
+          toplam += i;
         }
       }
 
-      if (temp === e && temp !== 0) {
+      if (toplam === e && toplam !== 0) {
         listem.push(e);
         setPerfect(listem);
       }
